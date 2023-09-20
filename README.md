@@ -23,3 +23,21 @@ Dengan mengimport HttpResponse dan seralizers, fungsi bagi setiap format ditamba
 Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
 
 Mengimport fungsi yang telah ditambah, dan penambahan path untuk akses di penulisan url.
+
+Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
+HTML
+<img width="1075" alt="ss html" src="https://github.com/raflishaista/tugas3/assets/124919851/87358a8c-943a-43ac-abca-fbca25a683b1">
+
+XML
+<img width="1074" alt="xml" src="https://github.com/raflishaista/tugas3/assets/124919851/5dffd850-a9d1-4d24-a5fa-fb8ece3f0002">
+
+XML ID
+<img width="971" alt="xml id" src="https://github.com/raflishaista/tugas3/assets/124919851/00f74b64-38fc-4b91-b616-eff533563271">
+
+JSON
+<img width="1072" alt="json" src="https://github.com/raflishaista/tugas3/assets/124919851/7078cf72-425d-4546-87cb-b8ec84a001df">
+
+JSON ID
+<img width="1076" alt="json id" src="https://github.com/raflishaista/tugas3/assets/124919851/a550110b-fe64-4a24-a3be-8957e96d781c">
+
+
