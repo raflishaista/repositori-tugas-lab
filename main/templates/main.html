@@ -2,6 +2,7 @@
 
 {% block content %}
     <h1>Card Catalog</h1>
+    <h2>{{name}}</h2>
 
     <table>
         <tr>
@@ -25,9 +26,17 @@
 
 <br />
 
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+
 <a href="{% url 'main:create_product' %}">
     <button>
         Add New Card
+    </button>
+</a>
+
+<a href="{% url 'main:logout' %}">
+    <button>
+        Logout
     </button>
 </a>
 

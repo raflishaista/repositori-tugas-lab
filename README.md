@@ -1,47 +1,30 @@
-Apa perbedaan antara form POST dan form GET dalam Django?
+Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
 
-POST dan GET adalah sama-sama merupakan HTTP request,yang didalam Django juga merupakan attribut dari HttpRequest, dimana keduanya memiliki fungsi berbeda, yaitu membaca dan mengambil data dari suatu server untuk GET, sedangkan mengirim data pada server untuk POST.
+UserCreationForm merupakan model built-in yang berasal dari class ModelForm. UserCreationForm digunakan untuk membuat user baru yang dapat menggunakan web, sehingga memiliki3 field yaitu username, password1, dan password2 untuk konfirmasi. Disini, kelebihan modul tersebut dapat terlihat, yaitu adanya field password2 untuk konfirmasi, sehingga pembuatan akun dapat meminimalisir kelemahan. Bagi kekurangannya, styling membutuhkan usaha yang lebih besar dibandingkan form lainnya.
 
-Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
+Autentikasi adalah pengecekan bahwa sebuah validasi memang apa saja yang "diklaim" atau diakui memang dari dirinya sendiri, sedangkan otorisasi adalah menentukan apa saja yang bisa diakses user. Keduanya penting karena merupakan bagian dari keamanan suatu proyek Django, dan dapat mempertahankan integritas proyek tersebut serta menjamin keamanan pengguna.
 
-HTML dapat diibaratkan sebagai suatu amplop, dan XML dan HTML dapat diibaratkan sebagai surat dalam amplop tersebut. HTML merupakan protokol, dan XML serta JSON merupakan data format bagi data HTML, baik dalam request atau receive. Ini dapat dilihat dalam serializing, yang singkatnya mengkonversi suatu properti publik data ke format serial lain. Selain itu, XML dan HTML sama-sama merupakan markup language, namun JSON merupakan notasi. 
+Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
+Cookies adalah data kecil yang dikirim oleh web server pada sebuah browser, kemudian dikembalikan kembali oleh browser ketika ada request. Jadi, cookies merupakan data yang disimpan di browser untuk sementara. Django mengelola cookie pada pengelolaan server session, dimana ada handling untuk webserver secara otomatis 
 
-Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
+Cookies sebenarnya hanya informasi dan bukan sebuah kode sehingga tidak bisa membaca/memproses/menghapus apapun dari platform/komputer. Namun, masih ada resiko dari cookie yang mudah diakses, sehingga harus diwaspadai untuk tidak menyimpan data sensitif sebagai cookie.
 
-Dalam aplikasi web modern, data dalam jumlah banyak perlu didisplay dan dikembalikan. JSON memiliki data format yang mudah untuk diparsing atau diurai, sehingga jika JSON digunakan, kode tambahan untuk parsing tidak diperlukan. Hal ini membuat JSON sangat membantu dalam pertukaran data dalam segi kecepatan, sehingga sering digunakan.
+Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
-Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step 
+Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
 
-Membuat input form untuk menambahkan objek model pada app sebelumnya.
+Pada views.py, membuat ketiga fungsi tersebut dengan parameter request yang akan diproses pada fungsi sesuai HTTP method yang dibutuhkan tiap fungsi (yang kebanyakan POST ). Autentikasi dan validasi form juga dibuat pada register dan login user, serta adanya pengelolaan cookie pada login user dan logout. Fungsi File markup HTML pada setiap fungsi juga dibuat.
 
-Membuat file forms.py, dengan dibuat juga model dan field model tersebut yang digunakan untuk form, serta membuat dan mengubah juga fungsi untuk menerima data form. Selain itu, data url juga dimodifikasi, serta penambahan file display html untuk input form
+Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.
 
-Tambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
+Register dahulu dua akun yang dibuat, kemudian, login pada setiap akun dan membuat 3 dummy data berupa produk kartu.Ketika login ke akun satu lagi, dan jika data berbeda, maka sudah sukses.
 
-Dengan mengimport HttpResponse dan seralizers, fungsi bagi setiap format ditambahkan, dengan serialization format yang berbeda, content type yang berbeda, dan parameter yang berbeda. 
+Menghubungkan model Item dengan User.
 
-Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
+Menambahkan suatu variabel pada models.py yang mengambil key dari satu tabel yang berupa data user, menambahkan deteksi dan pengambilan identitas user yang mengirim request dari proses login, kemudian menambahkan fungsi show_main suatu cara untuk mengakses data item dari user yang login dan juga nama dari user yang login.
 
-Mengimport fungsi yang telah ditambah, dan penambahan path untuk akses di penulisan url.
+Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.
 
-Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
-
-HTML
-<img width="1075" alt="html ss 2" src="https://github.com/raflishaista/tugas3/assets/124919851/2c7ae3e0-aecb-498a-8ade-cf7bf8278414">
-
-XML
-<img width="1072" alt="xml 2" src="https://github.com/raflishaista/tugas3/assets/124919851/f29f75fa-30e1-44a0-a69e-5269b8f3a539">
-
-
-XML ID
-<img width="1071" alt="xml id 2" src="https://github.com/raflishaista/tugas3/assets/124919851/c5b52ad7-7313-482d-891e-0516e5084f15">
-
-
-JSON
-<img width="1074" alt="json 2" src="https://github.com/raflishaista/tugas3/assets/124919851/bfab75fc-c39d-4dc0-b028-f273923a9960">
-
-JSON ID
-<img width="1076" alt="json id 2" src="https://github.com/raflishaista/tugas3/assets/124919851/0dfa04b7-efaa-4317-92f9-5f096511208a">
-
-
-
+Menambahkan cara pada fungsi yang mengelola variabel untuk dapat mengakses/mengambil nama dari user yang login. Untuk menunjukkan cookies, memberikan fungsi untuk merekam/set suatu data, menambahkan variabel yang bisa ditunjukkan yang mengambil dari data tersebut, dan juga menambahkan cara untuk menghapus data tersebut ketika logout jika dibutuhkan.
