@@ -1,4 +1,6 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+
+{% load static %}
 
 {% block content %}
 <style>
@@ -26,8 +28,13 @@
             background-color:gray;
             color:magenta;
         }
+    input{
+        background-color:gray;
+        color:magenta;
+    }
 </style>
-<h1>Add New Card</h1>
+
+<h1>Edit Product</h1>
 
 <form method="POST">
     {% csrf_token %}
@@ -36,20 +43,10 @@
         <tr>
             <td></td>
             <td>
-                <input type="submit" value="Add Card"/>
+                <input type="submit" value="Edit Product"/>
             </td>
         </tr>
     </table>
 </form>
-
-<table>
-    <tr>
-        <th>Card Name</th>
-        <th>Price</th>
-        <th>Source</th>
-        <th>Date Added</th>
-    </tr>
-
-    
 
 {% endblock %}

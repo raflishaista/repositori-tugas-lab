@@ -1,6 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <style>
+
+        h1 {
+            color: magenta;
+        }
+
+        h2{
+            color:magenta;
+        }
+        body {
+            background-color:black;
+        }
+        th{
+            color:magenta;
+        }
+        td{
+            color:magenta;
+        }
+        h5{
+            color:gainsboro
+        }
+        button{
+            background-color:gray;
+            color:magenta;
+        }
+    </style>
     <h1>Card Catalog</h1>
     <h2>{{name}}</h2>
 
@@ -20,6 +46,13 @@
             <td>{{product.price}}</td>
             <td>{{product.source}}</td>
             <td>{{product.date_added}}</td>
+            <td>
+                <a href="{% url 'main:edit_product' product.pk %}">
+                    <button>
+                        Edit
+                    </button>
+                </a>
+            </td>
         </tr>
     {% endfor %}
 </table>
