@@ -11,3 +11,13 @@
  Perbedaannya bisa dilihat di cara kerja dan pembangunan, seperti Tailwind yang menggabungkan kelas-kelas utilitas yang telah didefinisikan sebelumnya sedangkan Bootstrap yang menggunakan gaya dan komponen yang telah didefinisikan yang sudah ada sebelumnya. Tailwind lebih baik digunakan bagi individu yang sudah mempunyai pengalaman dalam utilitas tersebut, dan Boostrap untuk pemula yang dapat membangun sebuah halaman dengan cepat.
  
  Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+ Kustomisasi desain pada templat HTML yang telah dibuat pada Tugas 4 dengan menggunakan CSS atau CSS framework (seperti Bootstrap, Tailwind, Bulma) dengan ketentuan sebagai berikut
+
+ Kustomisasi halaman login, register, dan tambah inventori semenarik mungkin.
+
+ Pertama-tama, dengan menggunakan Boostrap, Navbar ditambahkan pada base.html, sehingga dapat diinherit oleh setiap halamana yang termasuk login, register, dan tambah inventori sehingga navbar terlihat pada halaman tersebut. Kemudian, pada navbar ditambahkan tombol-tombol yang dapat menuju ke fungsi lain seperti login dan logout. Untuk kustomisasi pada halaman tersebut sendiri, ditambahkannya tag style di awal halaman, dan menambahkan element selector untuk tag seperti h1 dan button untuk merubah-rubah warna tulisan dan warna tombol.
+
+ Kustomisasi halaman daftar inventori menjadi lebih berwarna maupun menggunakan apporach lain seperti menggunakan Card.
+
+ Sama seperti sebelumnya, dengan navbar sudah terambil dari base.html, serta merubah berbagai tag seperti warna font, warna tulisan di table data, dan warna background. Sebagai tambahan, tombol di table juga diganti warna background dan tulisan.
