@@ -14,6 +14,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_exempt
 
 @login_required(login_url='/login')
 def show_main(request):
@@ -104,5 +105,31 @@ def edit_product(request, id):
     context = {'form': form}
     return render(request, "edit_product.html", context)
 
+def get_product_json(request):
+    product_item = Product.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize('json', product_item))
 
+@csrf_exempt
+def create_ajax(request):
+    if request.method == 'POST':
+        cardname = request.POST.get("cardname")
+        price = request.POST.get("price")
+        source = request.POST.get("source")
+        user = request.user
+
+        new_product = Product(cardname=cardname, price=price, source=source, user=user)
+        new_product.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
+
+@csrf_exempt
+def delete_ajax(request):
+    if request.method == 'DELETE':
+        id = request.POST.get("id")
+        product = Product.objects.get(pk=id)
+        product.delete()
+        return HttpResponse(b"DELETED", status=201)
+    return HttpResponseNotFound()
 # Create your views here.
