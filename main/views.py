@@ -123,13 +123,4 @@ def create_ajax(request):
         return HttpResponse(b"CREATED", status=201)
 
     return HttpResponseNotFound()
-
-@csrf_exempt
-def delete_ajax(request):
-    if request.method == 'DELETE':
-        id = request.POST.get("id")
-        product = Product.objects.get(pk=id)
-        product.delete()
-        return HttpResponse(b"DELETED", status=201)
-    return HttpResponseNotFound()
 # Create your views here.
