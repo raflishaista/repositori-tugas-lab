@@ -1,30 +1,42 @@
-Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
+Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+Perbedaan utama kedua apporach programming tersebut terletak pada cara merekea mengerjakan tugas. Pada synchronous programming, jika suatu task atau tugas ingin dijalankan, jika ada task yang belum selesai dan sedang dijalankan, task baru tidak bisa dikerjakan, namun harus menunggu task sebelumnya selesai, sehingga setiap task dapat disebut bergantung pada task lain.. Karena ini, synchronous merupakan blocking architecture, yang hanya mengirim server satu request pada setiap waktu. Asynchronous merupakan non-blocking architecture, dimana setiap task tidak ebrgantung dengan task lain dan dapat berjalan dengan sendiri tanpa menunggu task lain. Asynchronous juga multi thread yang berarti task tersebut berjalan di parallel, sedangan synchronous single thread.
 
-UserCreationForm merupakan model built-in yang berasal dari class ModelForm. UserCreationForm digunakan untuk membuat user baru yang dapat menggunakan web, sehingga memiliki3 field yaitu username, password1, dan password2 untuk konfirmasi. Disini, kelebihan modul tersebut dapat terlihat, yaitu adanya field password2 untuk konfirmasi, sehingga pembuatan akun dapat meminimalisir kelemahan. Bagi kekurangannya, styling membutuhkan usaha yang lebih besar dibandingkan form lainnya.
+Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+Event driven intinya merupakan programming yang dapat bereaksi terhadap aksi dari pengguna, seperti klik dan aksi lainnya. Ketika user melakukan aksi, sebuah event terjadi yang dapat dideteksi oleh kode, kemudian kode tersebut menjalankan fungsi dan merubah page. Salah satu penerapannya adalah menambahnya card/tabel pada produk ketika sebuah fungsi menambah produk diselesaikan.
 
-Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
-Autentikasi adalah pengecekan bahwa sebuah validasi memang apa saja yang "diklaim" atau diakui memang dari dirinya sendiri, sedangkan otorisasi adalah menentukan apa saja yang bisa diakses user. Keduanya penting karena merupakan bagian dari keamanan suatu proyek Django, dan dapat mempertahankan integritas proyek tersebut serta menjamin keamanan pengguna.
+Jelaskan penerapan asynchronous programming pada AJAX.
+Dengan AJAX, asynchronous programming memungkinkan user untuk dapat berinteraksi dengan halaman walaupun ketika data sedang loading. Ajax membuat ini dapat terjadi dengan menukar data dengan web server dibalik permukaan, yang memungkinkan bagian-bagian dari sebuah web page diupdate tanpa mereload semua halaman. Ajax mengimplementasinya dengan fungsi-fungsinya, seperti request. dengan parameter sesuai, yang memungkinkan JavaScript untuk mengirim request tapi tidak menunggu jawaban, sehingga dapat melakukan task lain dan memproses ketika hjlaman masih bisa direspond.
 
-Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
-Cookies adalah data kecil yang dikirim oleh web server pada sebuah browser, kemudian dikembalikan kembali oleh browser ketika ada request. Jadi, cookies merupakan data yang disimpan di browser untuk sementara. Django mengelola cookie pada pengelolaan server session, dimana ada handling untuk webserver secara otomatis 
-
-Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
-Cookies sebenarnya hanya informasi dan bukan sebuah kode sehingga tidak bisa membaca/memproses/menghapus apapun dari platform/komputer. Namun, masih ada resiko dari cookie yang mudah diakses, sehingga harus diwaspadai untuk tidak menyimpan data sensitif sebagai cookie.
+Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+Keduanya kebanyakan dibandingkan pada kemampuan dalam memproses protokol, seperti request. Namun, keduanya ada perbedaan, seperti jquery yang merupakan sebuah library eksternal, dan Fetch yang merupakan API dan juga method baru pada jQuery.Walaupun jQuery lebih tua sehingga lebih aman digunakan karena lebih kompatibel dengan versi lama yang masih menggunakannya, Fetch dapat dibilang lebih baik untuk digunakan, karena dapat dibilang baru merupakan bagian integral bagi engine atau sistem JavaScript.
 
 Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+Mengubah tugas 5 yang telah dibuat sebelumnya menjadi menggunakan AJAX.
 
-Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
+ AJAX GET
 
-Pada views.py, membuat ketiga fungsi tersebut dengan parameter request yang akan diproses pada fungsi sesuai HTTP method yang dibutuhkan tiap fungsi (yang kebanyakan POST ). Autentikasi dan validasi form juga dibuat pada register dan login user, serta adanya pengelolaan cookie pada login user dan logout. Fungsi File markup HTML pada setiap fungsi juga dibuat.
+ Ubahlah kode cards data item agar dapat mendukung AJAX GET.
+ Memindahkan cards yang pada awalnya berada di bagian utama HTML, menjadi sebuah fungsi untuk menampilkan cards secara asynchronous di dalam tag script.
+ 
+ Lakukan pengambilan task menggunakan AJAX GET.
+Menggunakan fetch yang mengambil suatu fungsi yang mengambil item berdasarkan user, yang lalu mengeluarkan response berupa JSON. Ini akan digunakan ketika merefresh cards item.
+ 
+ AJAX POST
 
-Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.
+ Buatlah sebuah tombol yang membuka sebuah modal dengan form untuk menambahkan item.
+ Menambahkan tombol dengan fungsi dari bootstrap, yang dapat mentoggle atau memunculkan dan menghilangkan tanpa mengubah halaman yang melakukan suatu fungsi untuk menambahkan item. Ada juga fungsi reset() untuk menghilangkan submisi sebelumnya.
+ 
+ Buatlah fungsi view baru untuk menambahkan item baru ke dalam basis data.
+ Di view, membuat fungsi create_ajax, yang mendeteksi sebuah request jika request POST, dimana akan mendeteksi semua bagian form dari request yang di get sesuai variabel yang dibutuhkan item, dan membuat item baru dari data tersebut dan menambahkannya. Jika sukses, akan mengembalikan response HTTP.
 
-Register dahulu dua akun yang dibuat, kemudian, login pada setiap akun dan membuat 3 dummy data berupa produk kartu.Ketika login ke akun satu lagi, dan jika data berbeda, maka sudah sukses.
+ Buatlah path /create-ajax/ yang mengarah ke fungsi view yang baru kamu buat.
+ Di urls.py, mengimport fungsi view tersebut dan menghubungkannya di urls, dengan menambahkan path yang menuju /create-ajax/ dan menambahkan fungsi tersebut kepada path.
 
-Menghubungkan model Item dengan User.
+ Hubungkan form yang telah kamu buat di dalam modal kamu ke path /create-ajax/.
+ Di kode bootstrap pada html, pertama membuat form yang menerima input, serta button untuk submit. Pada button tersebut, tambahkan suatu id. Lalu, pada kode script yang berada pada tag script, buat suatu fungsi yang dapat mengambil button tersebut melalui id, seperti .onclick, yang akan run suatu fungsi yang menambahkan data pada form sebagai item.
 
-Menambahkan suatu variabel pada models.py yang mengambil key dari satu tabel yang berupa data user, menambahkan deteksi dan pengambilan identitas user yang mengirim request dari proses login, kemudian menambahkan fungsi show_main suatu cara untuk mengakses data item dari user yang login dan juga nama dari user yang login.
+ Lakukan refresh pada halaman utama secara asinkronus untuk menampilkan daftar item terbaru tanpa reload halaman utama secara keseluruhan.
+Membuat suatu fungsi yang merefresh card, baik dengan menimpa atau overwrite kumpulan card dengan kumpulan card baru yang menyertai card item yang sudah ditambahkan atau cara lain, kemudian memanggil fungsi tersebut pada fungsi menambah produk, sehingga ketika fungsi menambah produk dilakukan, refresh akan dilakukan secara otomatis.
 
-Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.
-
-Menambahkan cara pada fungsi yang mengelola variabel untuk dapat mengakses/mengambil nama dari user yang login. Untuk menunjukkan cookies, memberikan fungsi untuk merekam/set suatu data, menambahkan variabel yang bisa ditunjukkan yang mengambil dari data tersebut, dan juga menambahkan cara untuk menghapus data tersebut ketika logout jika dibutuhkan.
+ Melakukan perintah collectstatic.
+Pada settings.py, menambahkan terlebih dahulu sebuah path root STATIC_ROOT sebagai folder untuk menyimpan static file, di dekat STATIC_URL. Kemudian, run py manage.py collectstatic, yang akan membuat folder tersebut dan mengisinya secara otomatis.
