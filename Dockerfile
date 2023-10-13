@@ -1,10 +1,14 @@
+FROM jfloff/alpine-python:2.7
+ARG src="tugas3 - Copy.settings"
+
 FROM python:3.10-slim-buster
 
 WORKDIR /app
 
+
 ENV PYTHONUNBUFFERED=1 \
     PYTHONPATH=/app \
-    DJANGO_SETTINGS_MODULE=tugas3-Copy.settings \
+    DJANGO_SETTINGS_MODULE=${src} \
     PORT=8000 \
     WEB_CONCURRENCY=2
 
