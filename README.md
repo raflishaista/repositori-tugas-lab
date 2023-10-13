@@ -40,3 +40,5 @@ Membuat suatu fungsi yang merefresh card, baik dengan menimpa atau overwrite kum
 
  Melakukan perintah collectstatic.
 Pada settings.py, menambahkan terlebih dahulu sebuah path root STATIC_ROOT sebagai folder untuk menyimpan static file, di dekat STATIC_URL. Kemudian, run py manage.py collectstatic, yang akan membuat folder tersebut dan mengisinya secara otomatis.
+
+app:http://rafli-aditya-tugas.pbp.cs.ui.ac.id/
